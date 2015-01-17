@@ -163,12 +163,17 @@ $(".previous").click(function(){
 });
 
 $(".checkout").click(function(){
-	confirm("You have selected to receive a "+checkout[0]+" pack of "+checkout[1].toLowerCase()+" "+checkout[2].toLowerCase()+".");
-	if (true){
+	if (checkout[2] !== null){
+		confirm("Your total is $"+total+". You have selected to receive a "+checkout[0]+" pack of "+checkout[1].toLowerCase()+" "+checkout[2].toLowerCase()+".");
+		if (true){
 		//send data to checkout
 		//redirect to checkout 
 		//window.location = insert page for checkout;
+		}
+		// if cancel, then stay on current frame
+		return false;
 	}
-	// if cancel, then stay on current frame
-	return false;
+	
+	alert("Gotta pick a frequency.");
+	
 });
