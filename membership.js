@@ -6,20 +6,29 @@ var checkout = [];
 
 
 $(".bottles").click(function(){
-	// check if item is in the checkout array
-	if ($.inArray($(this).val(), checkout) !== -1){
-		alert("Got it.");
-	} else {
+	// if the array is empty, then add selected item to checkout
+	if (checkout.length === 0){
 		checkout.push($(this).val());
+	} else {
+		// The array has something in it
+		// Check if what is in it is = to what is selected
+		if ($(this).val() == checkout[0]){
+			alert($(this).val()+" is in checkout.");
+		} else {
+			checkout[0] = $(this).val();
+		}
+		
 	} console.log(checkout);
 });
 
 $(".type").click(function(){
+	// if index 1 does not exist, then add selected item to checkout
 	checkout.push($(this).val());
 	console.log(checkout);
 });
 
 $(".freq").click(function(){
+	// if index 2 does not exist, then add selected item to checkout
 	checkout.push($(this).val());
 	console.log(checkout);
 });
@@ -38,6 +47,7 @@ $(".next").click(function(){
 	
 	//show the next fieldset
 	next_fs.show();
+	
 	//hide the current fieldset with style
 	current_fs.animate({opacity: 0}, {
 		step: function(now, mx) {
