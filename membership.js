@@ -7,7 +7,7 @@ var checkout = [];
 
 $(".bottles").click(function(){
 	// if the array is empty, then add selected item to checkout
-	if (checkout.length === 0){
+	if (checkout[0] === null){
 		checkout.push($(this).val());
 	} else {
 		// The array has something in it
@@ -15,6 +15,7 @@ $(".bottles").click(function(){
 		if ($(this).val() == checkout[0]){
 			alert($(this).val()+" is in checkout.");
 		} else {
+			// Add new selection to checkout
 			checkout[0] = $(this).val();
 		}
 		
@@ -22,15 +23,34 @@ $(".bottles").click(function(){
 });
 
 $(".type").click(function(){
-	// if index 1 does not exist, then add selected item to checkout
-	checkout.push($(this).val());
-	console.log(checkout);
+	if (checkout[1] === null){
+		checkout.push($(this).val());
+	} else {
+		// The array has something in it
+		// Check if what is in it is = to what is selected
+		if ($(this).val() == checkout[1]){
+			alert($(this).val()+" is in checkout.");
+		} else {
+			// Add new selection to checkout
+			checkout[1] = $(this).val();
+		}
+	} console.log(checkout);
+
 });
 
 $(".freq").click(function(){
-	// if index 2 does not exist, then add selected item to checkout
-	checkout.push($(this).val());
-	console.log(checkout);
+	if (checkout[2] === null){
+		checkout.push($(this).val());
+	} else {
+		// The array has something in it
+		// Check if what is in it is = to what is selected
+		if ($(this).val() == checkout[2]){
+			alert($(this).val()+" is in checkout.");
+		} else {
+			// Add new selection to checkout
+			checkout[2] = $(this).val();
+		}
+	} console.log(checkout);
 });
 
 
