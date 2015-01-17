@@ -4,7 +4,6 @@ var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 var checkout = [];
 
-
 $(".bottles").click(function(){
 	// if the array is empty, then add selected item to checkout
 	if (checkout[0] === null){
@@ -121,6 +120,7 @@ $(".freq").click(function(){
 	} console.log(checkout);
 });
 
+
 // If previous button is selected
 $(".previous").click(function(){
 	if(animating) return false;
@@ -157,6 +157,13 @@ $(".previous").click(function(){
 	});
 });
 
-$(".submit").click(function(){
+$(".checkout").click(function(){
+	confirm("You have selected to receive a "+checkout[0]+" of "+checkout[1]+" "+checkout[2]);
+	if (true){
+		//send data to checkout
+		//redirect to checkout 
+		//window.location = insert page for checkout;
+	}
+	// if cancel, then stay on current frame
 	return false;
 });
