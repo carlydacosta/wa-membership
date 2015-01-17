@@ -3,22 +3,27 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 var checkout = [];
+var total = 0;
 
 $(".bottles").click(function(){
 	// if the array is empty, then add selected item to checkout
 	if (checkout[0] === null){
-		checkout.push($(this).val());
+		checkout.push($(this).data("bottles"));
 	} else {
 		// The array has something in it
 		// Check if what is in it is = to what is selected
-		if ($(this).val() == checkout[0]){
-			alert($(this).val()+" is in checkout.");
+		if ($(this).data("bottles") == checkout[0]){
+			alert($(this).data("bottles")+" is in checkout.");
 		} else {
 			// Add new selection to checkout
-			checkout[0] = $(this).val();
+			checkout[0] = $(this).data("bottles");
 		}
 		
-	} console.log(checkout);
+	}
+	console.log(checkout);
+	total = $(this).data("price");
+	console.log(total);
+
 
 	if(animating) return false;
 	animating = true;
@@ -158,7 +163,7 @@ $(".previous").click(function(){
 });
 
 $(".checkout").click(function(){
-	confirm("You have selected to receive a "+checkout[0]+" of "+checkout[1]+" "+checkout[2]);
+	confirm("You have selected to receive a "+checkout[0]+" pack of "+checkout[1].toLowerCase()+" "+checkout[2].toLowerCase()+".");
 	if (true){
 		//send data to checkout
 		//redirect to checkout 
